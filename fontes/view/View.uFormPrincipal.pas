@@ -15,16 +15,23 @@ uses
   Vcl.Menus,
   System.Actions,
   Vcl.ActnList,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls,
+  Vcl.Buttons,
+  Vcl.Imaging.jpeg,
+  System.ImageList,
+  Vcl.ImgList;
 
 type
-  TFormPrincipal = class(TForm)
+  TFormPrincipal = class sealed(TForm)
     actAbastecimento: TAction;
     actBomba: TAction;
     actCombustivel: TAction;
     actRelAbastecimento: TAction;
     actTanque: TAction;
     alAcoesMenu: TActionList;
+    btnAbastecimento: TSpeedButton;
+    btnRelAbastecimento: TSpeedButton;
+    imgPosto: TImage;
     miCadastro: TMenuItem;
     miCadBomba: TMenuItem;
     miCadCombustivel: TMenuItem;
@@ -34,8 +41,11 @@ type
     miVendAbastecimento: TMenuItem;
     miVendas: TMenuItem;
     mmPrincipal: TMainMenu;
+    pnlAbastecimento: TPanel;
     pnlCentro: TPanel;
+    pnlDiv1: TPanel;
     pnlEsquerdo: TPanel;
+    pnlRelAbastecimento: TPanel;
     pnlRodape: TPanel;
   end;
 

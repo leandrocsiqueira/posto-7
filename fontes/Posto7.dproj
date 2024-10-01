@@ -127,6 +127,11 @@
             <Form>FormPrincipal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="model\Model.uCombustivel.pas"/>
+        <DCCReference Include="model\Model.uAcao.pas"/>
+        <DCCReference Include="model\Model.uTanque.pas"/>
+        <DCCReference Include="model\Model.uBomba.pas"/>
+        <DCCReference Include="model\Model.uAbastecimento.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
