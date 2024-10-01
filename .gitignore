@@ -42,3 +42,4 @@ __recovery/
 *.~*
 *.stat
 modules/
+.gitignore
