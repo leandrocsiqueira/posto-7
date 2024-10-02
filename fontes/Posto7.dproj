@@ -132,6 +132,11 @@
         <DCCReference Include="model\Model.uTanque.pas"/>
         <DCCReference Include="model\Model.uBomba.pas"/>
         <DCCReference Include="model\Model.uAbastecimento.pas"/>
+        <DCCReference Include="dao\Dao.uDmConexao.pas">
+            <Form>DmConexao</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
