@@ -9,7 +9,6 @@ type
   TAbastecimento = class sealed
   private
     FAcao: TAcao;
-    FCombustivel: string;
     FDataHora: TDateTime;
     FId: Integer;
     FIdBomba: Integer;
@@ -20,7 +19,6 @@ type
     FValorUnitario: Real;
   public
     property Acao: TAcao read FAcao write FAcao;
-    property Combustivel: string read FCombustivel write FCombustivel;
     property DataHora: TDateTime read FDataHora write FDataHora;
     property Id: Integer read FId write FId;
     property IdBomba: Integer read FIdBomba write FIdBomba;
