@@ -23,30 +23,31 @@ uses
 
 type
   TFormPrincipal = class sealed(TForm)
-    actAbastecimento: TAction;
-    actBomba: TAction;
-    actCombustivel: TAction;
+    actAbastecimento:    TAction;
+    actBomba:            TAction;
+    actCombustivel:      TAction;
     actRelAbastecimento: TAction;
-    actTanque: TAction;
-    alAcoesMenu: TActionList;
-    btnAbastecimento: TSpeedButton;
+    actTanque:           TAction;
+    aclAcoesMenu: TActionList;
+    btnAbastecimento:    TSpeedButton;
     btnRelAbastecimento: TSpeedButton;
-    imgPosto: TImage;
-    miCadastro: TMenuItem;
-    miCadBomba: TMenuItem;
-    miCadCombustivel: TMenuItem;
-    miCadTanque: TMenuItem;
-    miRelAbastecimento: TMenuItem;
-    miRelatorios: TMenuItem;
+    imgPosto:            TImage;
+    miCadastro:          TMenuItem;
+    miCadBomba:          TMenuItem;
+    miCadCombustivel:    TMenuItem;
+    miCadTanque:         TMenuItem;
+    miRelAbastecimento:  TMenuItem;
+    miRelatorios:        TMenuItem;
     miVendAbastecimento: TMenuItem;
-    miVendas: TMenuItem;
-    mmPrincipal: TMainMenu;
-    pnlAbastecimento: TPanel;
-    pnlCentro: TPanel;
-    pnlDiv1: TPanel;
-    pnlEsquerdo: TPanel;
+    miVendas:            TMenuItem;
+    mmPrincipal:         TMainMenu;
+    pnlAbastecimento:    TPanel;
+    pnlCentro:           TPanel;
+    pnlDiv1:             TPanel;
+    pnlEsquerdo:         TPanel;
     pnlRelAbastecimento: TPanel;
-    pnlRodape: TPanel;
+    pnlRodape:           TPanel;
+    procedure actCombustivelExecute(Sender: TObject);
   end;
 
 var
@@ -55,5 +56,15 @@ var
 implementation
 
 {$R *.dfm}
+
+uses
+  View.uFormCombustivel;
+
+procedure TFormPrincipal.actCombustivelExecute(Sender: TObject);
+begin
+  if FormCombustivel = Nil then
+    Application.CreateForm(TFormCombustivel, FormCombustivel);
+  FormCombustivel.ShowModal;
+end;
 
 end.

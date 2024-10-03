@@ -8,14 +8,15 @@ uses
   Model.uTanque in 'model\Model.uTanque.pas',
   Model.uBomba in 'model\Model.uBomba.pas',
   Model.uAbastecimento in 'model\Model.uAbastecimento.pas',
-  Dao.uDmConexao in 'dao\Dao.uDmConexao.pas' {DmConexao: TDataModule};
+  Dao.uDmConexao in 'dao\Dao.uDmConexao.pas' {DmConexao: TDataModule},
+  View.uFormCombustivel in 'view\View.uFormCombustivel.pas' {FormCombustivel};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TDmConexao, DmConexao);
+  Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.Run;
 end.

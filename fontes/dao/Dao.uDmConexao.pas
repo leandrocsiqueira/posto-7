@@ -26,16 +26,16 @@ uses
 type
   TDmConexao = class(TDataModule)
     fdConexao: TFDConnection;
-    fdCursor: TFDGUIxWaitCursor;
-    fdLink: TFDPhysFBDriverLink;
-    procedure DataModuleCreate(Sender: TObject);
+    fdCursor:  TFDGUIxWaitCursor;
+    fdLink:    TFDPhysFBDriverLink;
+    procedure  DataModuleCreate(Sender: TObject);
   private
     procedure ConectarAoBanco;
     procedure ConfigurarConexao;
     procedure LerConfiguracoesIni(const ACaminhoArquivo: string);
-    function ObterCaminhoArquivoIni: string;
+    function  ObterCaminhoArquivoIni: string;
   public
-    function CriarConsulta: TFDQuery;
+    function  CriarConsulta: TFDQuery;
   end;
 
 var
@@ -60,13 +60,15 @@ begin
   try
     fdConexao.Connected := True;
   except on E: Exception do
-    raise Exception.Create('Erro ao configurar a conexão: ' + E.Message);
+    raise Exception.Create(
+      'Erro ao configurar a conexão: ' + E.Message
+    );
   end;
 end;
 
 procedure TDmConexao.ConfigurarConexao;
 begin
-  fdConexao.LoginPrompt := False;
+  fdConexao.LoginPrompt               := False;
   fdConexao.FormatOptions.OwnMapRules := True;
   fdConexao.FormatOptions.MapRules.Add(dtSingle, dtDouble);
 end;
@@ -75,9 +77,9 @@ function TDmConexao.CriarConsulta: TFDQuery;
 var
   LConsulta: TFDQuery;
 begin
-  LConsulta := TFDQuery.Create(nil);
+  LConsulta            := TFDQuery.Create(nil);
   LConsulta.Connection := fdConexao;
-  Result := LConsulta;
+  Result               := LConsulta;
 end;
 
 procedure TDmConexao.DataModuleCreate(Sender: TObject);
@@ -92,14 +94,26 @@ begin
   LArquivoIni := TIniFile.Create(ACaminhoArquivo);
   try
     // Leitura das configurações do arquivo INI
-    fdConexao.Params.DriverID := LArquivoIni.ReadString('Database',
-      'DriverID', 'FB');
-    fdConexao.Params.Database := LArquivoIni.ReadString('Database',
-      'Database', '');
-    fdConexao.Params.UserName := LArquivoIni.ReadString('Database',
-      'Username', '');
-    fdConexao.Params.Password := LArquivoIni.ReadString('Database',
-      'Password', '');
+    fdConexao.Params.DriverID := LArquivoIni.ReadString(
+      'Database',
+      'DriverID',
+      'FB'
+    );
+    fdConexao.Params.Database := LArquivoIni.ReadString(
+      'Database',
+      'Database',
+      ''
+    );
+    fdConexao.Params.UserName := LArquivoIni.ReadString(
+      'Database',
+      'Username',
+      ''
+    );
+    fdConexao.Params.Password := LArquivoIni.ReadString(
+      'Database',
+      'Password',
+      ''
+    );
   finally
     LArquivoIni.Free;
   end;
@@ -107,10 +121,16 @@ end;
 
 function TDmConexao.ObterCaminhoArquivoIni: string;
 begin
-  // Define o caminho completo até o arquivo INI
-  Result := IncludeTrailingPathDelimiter
-    (ExtractFileDir(ExtractFileDir(ExtractFileDir(ParamStr(0))))) +
-    'db\config.ini';
+  // Caminho até o arquivo INI
+  Result := IncludeTrailingPathDelimiter(
+    ExtractFileDir(
+      ExtractFileDir(
+        ExtractFileDir(
+          ParamStr(0)
+        )
+      )
+    )
+  ) + 'db\config.ini';
 end;
 
 end.

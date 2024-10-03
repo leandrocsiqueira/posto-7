@@ -1,7 +1,7 @@
 object DmConexao: TDmConexao
   OnCreate = DataModuleCreate
-  Height = 437
-  Width = 874
+  Height = 217
+  Width = 500
   PixelsPerInch = 120
   object fdConexao: TFDConnection
     Params.Strings = (
@@ -16,12 +16,12 @@ object DmConexao: TDmConexao
     Top = 80
   end
   object fdLink: TFDPhysFBDriverLink
-    Left = 104
-    Top = 176
+    Left = 216
+    Top = 80
   end
   object fdCursor: TFDGUIxWaitCursor
     Provider = 'Forms'
-    Left = 104
-    Top = 272
+    Left = 312
+    Top = 80
   end
 end

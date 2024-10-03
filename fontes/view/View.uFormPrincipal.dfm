@@ -20,6 +20,7 @@ object FormPrincipal: TFormPrincipal
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitHeight = 535
     object pnlAbastecimento: TPanel
       Left = 0
       Top = 0
@@ -55,7 +56,6 @@ object FormPrincipal: TFormPrincipal
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 97
     end
     object pnlRelAbastecimento: TPanel
       Left = 0
@@ -90,8 +90,8 @@ object FormPrincipal: TFormPrincipal
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitTop = 520
-    ExplicitWidth = 1050
+    ExplicitTop = 535
+    ExplicitWidth = 1241
   end
   object pnlCentro: TPanel
     Left = 217
@@ -101,9 +101,8 @@ object FormPrincipal: TFormPrincipal
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitLeft = 273
-    ExplicitWidth = 777
-    ExplicitHeight = 520
+    ExplicitWidth = 1024
+    ExplicitHeight = 535
     object imgPosto: TImage
       Left = 0
       Top = 0
@@ -4348,12 +4347,13 @@ object FormPrincipal: TFormPrincipal
       ExplicitHeight = 457
     end
   end
-  object alAcoesMenu: TActionList
+  object aclAcoesMenu: TActionList
     Left = 392
     Top = 32
     object actCombustivel: TAction
       Category = 'Cadastro'
       Caption = 'Combust'#237'vel'
+      OnExecute = actCombustivelExecute
     end
     object actTanque: TAction
       Category = 'Cadastro'
